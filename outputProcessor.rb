@@ -7,12 +7,12 @@ if ARGV[0] == nil
 end
 
 # which network output to process
-sample = ARGV[1]
+sample = ARGV[1].to_i
 if ARGV[1] == nil
   sample = 12
 end
 
-f = File.open("./network/#{networkname}.output.txt", "r")
+f = File.open("./network/#{networkname}.output.xml", "r")
 fo = File.open("./network/#{networkname}.poutput.txt", "w")
 lines = f.readlines
 

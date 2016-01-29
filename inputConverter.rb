@@ -7,7 +7,7 @@ if ARGV[0] == nil
 end
 
 # duration of simulation
-simduration = ARGV[1]
+simduration = ARGV[1].to_i
 if ARGV[1] == nil
   simduration = 60*60
 end
