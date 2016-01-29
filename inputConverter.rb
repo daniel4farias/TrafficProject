@@ -5,6 +5,12 @@ networkname = ARGV[0]
 if ARGV[0] == nil
   networkname = "huntcol"
 end
+
+# duration of simulation
+networkname = ARGV[0]
+if ARGV[1] == nil
+  simduration = 60*60
+end
   
 ################################################################################################
 ## Reads in relevant files and organizes data
@@ -14,7 +20,7 @@ f = File.open("./network/#{networkname}.nod.xml", "r")
 f.each_line do |line|
   if line =~ /<node\s*id="(.*)"\s*x=".*"\s*y=".*"\s*(type="(.*)")?\/>/x
     nodes.push($1)
-  end
+  end 
 end
 f.close
 #puts nodes.to_s
@@ -252,7 +258,7 @@ def rule (rate, rand)
 end
 
 # Generate the cars according to rule defined above 
-(0..60*60).step(1) do |start_time|
+(0..simduration).step(1) do |start_time|
   sources.keys.each { |source|
     i = 0
     totprob = 0;
