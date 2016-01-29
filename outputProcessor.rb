@@ -1,4 +1,4 @@
-
+## outputProcessor.rb
 
 # which network output to process
 networkname = ARGV[0]

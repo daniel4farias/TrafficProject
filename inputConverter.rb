@@ -1,4 +1,4 @@
-
+## inputConverter.rb
 
 # what network is being used
 networkname = ARGV[0]
@@ -7,7 +7,7 @@ if ARGV[0] == nil
 end
 
 # duration of simulation
-networkname = ARGV[0]
+simduration = ARGV[1]
 if ARGV[1] == nil
   simduration = 60*60
 end
