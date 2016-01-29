@@ -15,6 +15,7 @@ end
 f = File.open("./network/#{networkname}.output.txt", "r")
 fo = File.open("./network/#{networkname}.poutput.txt", "w")
 lines = f.readlines
+
 #puts lines.length
 index = 0
 time = -1
