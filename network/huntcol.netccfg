@@ -7,7 +7,6 @@
         <edge-files value="huntcol.edg.xml"/>
         <connection-files value="huntcol.con.xml"/>
         <type-files value="huntcol.typ.xml"/>
-        <a value="huntcol.add.xml"/>
     </input>
 
     <output>

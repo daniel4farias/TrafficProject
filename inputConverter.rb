@@ -1,16 +1,16 @@
 ## inputConverter.rb
 
 # what network is being used
-networkname = ARGV[0]
-if ARGV[0] == nil
+#networkname = ARGV[0]
+#if ARGV[0] == nil
   networkname = "huntcol"
-end
+#end
 
 # duration of simulation
-simduration = ARGV[1].to_i
-if ARGV[1] == nil
+#simduration = ARGV[1].to_i
+#if ARGV[1] == nil
   simduration = 60*60
-end
+#end
   
 ################################################################################################
 ## Reads in relevant files and organizes data
@@ -257,6 +257,12 @@ def rule (rate, rand)
   return r < rate / (60*60) #60*60 = 3600 seconds
 end
 
+## Rate method, can be changed to sinusoidal, etc
+# given some rate, decides at what rate a car will be created over timei (assumes 1 second simulation steps)
+def rate (raw, time)
+  return raw #  raw * cos(time)^2
+end
+
 # Generate the cars according to rule defined above 
 (0..simduration).step(1) do |start_time|
   sources.keys.each { |source|
@@ -281,7 +287,7 @@ end
     end
 
     # Decides whether to create a car in the given second and generates it
-    if routes[source][i] and rule(sources[source].to_f, rand)
+    if routes[source][i] and rule(rate(sources[source].to_f, start_time), rand)
       #puts cummulator 
       vehicle_id += 1
       #puts "#{start_time} #{vehicle_id} and #{routes[source][i]}"
